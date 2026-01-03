@@ -11,6 +11,9 @@
 namespace global_search_strongin {
 
 class StronginPerfTests : public ppc::util::BaseRunPerfTests<InType, OutType> {
+ public:
+  StronginPerfTests() : input_(), expected_result_(0.0) {}
+
  protected:
   void SetUp() override {
     const double left = -5.0;

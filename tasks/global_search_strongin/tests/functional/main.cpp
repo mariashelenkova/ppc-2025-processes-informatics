@@ -4,6 +4,7 @@
 #include <array>
 #include <cmath>
 #include <cstddef>
+#include <functional>
 #include <string>
 #include <tuple>
 
@@ -39,21 +40,21 @@ class StronginFuncTests : public ppc::util::BaseRunFuncTests<InType, OutType, Te
     const int max_iters = std::get<4>(params);
     const auto function = std::get<5>(params);
 
-    expected_result_ = std::get<6>(params);
-    input_ = std::make_tuple(left, right, epsilon, max_iters, function);
+    expected_result = std::get<6>(params);
+    input = std::make_tuple(left, right, epsilon, max_iters, function);
   }
 
   InType GetTestInputData() final {
-    return input_;
+    return input;
   }
 
   bool CheckTestOutputData(OutType &output_data) final {
     constexpr double kTolerance = 1e-2;
-    return std::abs(output_data - expected_result_) <= kTolerance;
+    return std::abs(output_data - expected_result) <= kTolerance;
   }
 
-  InType input_{};
-  OutType expected_result_{};
+  InType input;
+  OutType expected_result;
 };
 
 namespace {

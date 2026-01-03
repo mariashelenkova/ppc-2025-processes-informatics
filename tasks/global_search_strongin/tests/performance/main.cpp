@@ -31,8 +31,8 @@ class StronginPerfTests : public ppc::util::BaseRunPerfTests<InType, OutType> {
   }
 
  private:
-  InType input_{};
-  OutType expected_result_{};
+  InType input_;
+  OutType expected_result_;
 
   static double Function(double x) {
     return (0.002 * x * x) + (5.0 * std::sin(30.0 * x)) + std::sin(200.0 * std::sin(50.0 * x)) +

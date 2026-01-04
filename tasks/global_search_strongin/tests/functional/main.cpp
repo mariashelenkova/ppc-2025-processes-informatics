@@ -20,8 +20,6 @@ using TestType = std::tuple<int, double, double, double, int, std::function<doub
 
 class StronginFuncTests : public ppc::util::BaseRunFuncTests<InType, OutType, TestType> {
  public:
-  StronginFuncTests() : input(), expected_result(0.0) {}
-
   static std::string PrintTestParam(const TestType &test_param) {
     std::string result = "test_" + std::to_string(std::get<0>(test_param)) + "_from_" +
                          std::to_string(std::get<1>(test_param)) + "_to_" + std::to_string(std::get<2>(test_param)) +
@@ -56,7 +54,7 @@ class StronginFuncTests : public ppc::util::BaseRunFuncTests<InType, OutType, Te
   }
 
   InType input;
-  OutType expected_result;
+  OutType expected_result{0.0};
 };
 
 namespace {

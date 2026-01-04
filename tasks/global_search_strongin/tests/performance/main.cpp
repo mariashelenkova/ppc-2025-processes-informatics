@@ -11,9 +11,6 @@
 namespace global_search_strongin {
 
 class StronginPerfTests : public ppc::util::BaseRunPerfTests<InType, OutType> {
- public:
-  StronginPerfTests() : input_(), expected_result_(0.0) {}
-
  protected:
   void SetUp() override {
     const double left = -5.0;
@@ -35,7 +32,7 @@ class StronginPerfTests : public ppc::util::BaseRunPerfTests<InType, OutType> {
 
  private:
   InType input_;
-  OutType expected_result_;
+  OutType expected_result_{0.0};
 
   static double Function(double x) {
     return (0.002 * x * x) + (5.0 * std::sin(30.0 * x)) + std::sin(200.0 * std::sin(50.0 * x)) +
